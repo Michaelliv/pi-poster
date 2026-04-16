@@ -361,7 +361,7 @@ export default function (pi: ExtensionAPI) {
       }
     },
 
-    renderResult(result, _options, theme) {
+    renderResult(result, _options, theme, context) {
       const details = result.details as RenderDetails | undefined;
       const container = new Container("vertical", 0);
       if (!details) return container;
@@ -370,7 +370,7 @@ export default function (pi: ExtensionAPI) {
       const label = `${details.format} · ${kb} KB → ${details.path}`;
       container.addChild(new Text(theme.fg("muted", label), 0, 0));
 
-      if (getCapabilities().images && details.base64 && details.mime) {
+      if (getCapabilities().images && context.showImages && details.base64 && details.mime) {
         container.addChild(
           new Image(
             details.base64,
