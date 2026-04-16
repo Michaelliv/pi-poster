@@ -8,6 +8,11 @@
     "render",
     "visualization"
   ],
+  "files": [
+    ".pi/",
+    "skills/",
+    "README.md"
+  ],
   "pi": {
     "extensions": [
       ".pi/extensions/poster-make"
