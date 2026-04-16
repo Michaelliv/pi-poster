@@ -85,7 +85,44 @@ One source of truth. Two sources = overflow + empty-strip bugs.
 
 ## What posters look like
 
-The underlying engine is [poster-ai](https://github.com/Michaelliv/poster) — see the [gallery](https://github.com/Michaelliv/poster#gallery) for 50+ examples covering dashboards, editorial spreads, year-in-review stories, brutalist posters, anatomy diagrams, neon coverart, and more. Every example is a single TSX file the agent can author the same way.
+Every one of these is a single `.tsx` file the agent can author the same way — click any source link to see exactly what the model produced.
+
+<table>
+  <tr>
+    <td width="50%" valign="top"><a href="examples/dashboard.png"><img src="examples/dashboard.png" alt="dashboard" /></a></td>
+    <td valign="top"><strong><code>dashboard</code></strong> · <a href="examples/dashboard.tsx">source</a><br/><br/><sub>Single-page analytics dashboard — area + bar charts, top-customer table, traffic source breakdown, KPI tiles. Dark theme with gradient fills, precise tabular numbers.</sub></td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="examples/devwrap.png"><img src="examples/devwrap.png" alt="devwrap" /></a></td>
+    <td valign="top"><strong><code>devwrap</code></strong> · <a href="examples/devwrap.tsx">source</a><br/><br/><sub>Developer year-in-review poster — GitHub-style contribution heatmap, language mix donut, top repos, KPI tiles for commits / PRs / reviews / longest streak. Code-tool aesthetic.</sub></td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="examples/bloomberg.png"><img src="examples/bloomberg.png" alt="bloomberg" /></a></td>
+    <td valign="top"><strong><code>bloomberg</code></strong> · <a href="examples/bloomberg.tsx">source</a><br/><br/><sub>Market dashboard styled like a Bloomberg Terminal — black background, monospaced amber-on-black, dense rows of tickers with bid / ask / last / chg / vol.</sub></td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="examples/editorial.png"><img src="examples/editorial.png" alt="editorial" /></a></td>
+    <td valign="top"><strong><code>editorial</code></strong> · <a href="examples/editorial.tsx">source</a><br/><br/><sub>Tall editorial data-story magazine spread on climate emissions — magazine-grade typography, inline charts, pull quotes, target-line annotations. Long-form data journalism feel.</sub></td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="examples/brutalist.png"><img src="examples/brutalist.png" alt="brutalist" /></a></td>
+    <td valign="top"><strong><code>brutalist</code></strong> · <a href="examples/brutalist.tsx">source</a><br/><br/><sub>Brutalist product spec card — flat saturated yellow, white inner panel with thick black borders, all-caps Inter, hard rectangles. 1990s industrial parts catalog energy.</sub></td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="examples/travelposter.png"><img src="examples/travelposter.png" alt="travelposter" /></a></td>
+    <td valign="top"><strong><code>travelposter</code></strong> · <a href="examples/travelposter.tsx">source</a><br/><br/><sub>1930s WPA-style travel poster for 'Iceland — Land of Fire and Ice' — flat geometric mountains and aurora, art deco type, limited 4-color palette, cream paper texture.</sub></td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="examples/vinyl.png"><img src="examples/vinyl.png" alt="vinyl" /></a></td>
+    <td valign="top"><strong><code>vinyl</code></strong> · <a href="examples/vinyl.tsx">source</a><br/><br/><sub>Square Blue Note Records-style jazz album cover — cool muted palette, bold sans serif credits, generous whitespace, one big abstract shape suggesting horns.</sub></td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="examples/subway.png"><img src="examples/subway.png" alt="subway" /></a></td>
+    <td valign="top"><strong><code>subway</code></strong> · <a href="examples/subway.tsx">source</a><br/><br/><sub>Tokyo subway-map style schematic — 6 colored transit lines with named stations and interchange points. Geometric, 45° / 90° angles only, line legend, route numbers in colored circles.</sub></td>
+  </tr>
+</table>
+
+For 40+ more examples — anatomy diagrams, neon synthwave, NYT-style crosswords, tarot cards, illuminated manuscripts, weather widgets, sankey flows — see the full [poster-ai gallery](https://github.com/Michaelliv/poster#gallery).
 
 ## License
 
