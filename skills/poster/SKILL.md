@@ -504,8 +504,42 @@ See: `dashboard` example vibe.
 | Content overflows canvas right | stray `w-full` next to `w-[Npx]` | delete `w-full` |
 | Labels illegible in preview | `text-xs` / `text-[11px]` | floor is 14px |
 | Absolute shapes in wrong place | root has no definite height | add `min-h-[Npx]` |
+| **Bars / elements with `height: X%` render invisible** | **parent has no fixed height — percentage resolves to 0** | **use pixel math: `height: ${(v/max)*80}px`** |
+| **Content at bottom of fixed-aspect poster is missing** | **content overflows `h-[Npx]` and root has `overflow-hidden`** | **drop `h-[Npx]` (let height be content-driven), or reduce content** |
 | "Muddy" color feel | mixed 3+ accent families | pick one family |
 | "Generic webpage" feel | no kicker/footer rhythm | add small-caps eyebrows + muted footer |
+
+### Fixed-aspect posters need to budget content to the canvas
+
+When you declare `w-[1080px] h-[1350px]`, any content that extends past 1350px gets clipped (root usually has `overflow-hidden` to contain gradient blobs). Before writing the TSX, mentally add up section heights:
+
+```
+padding (p-14 = 56px × 2)  = 112
+header block               ~180
+hero number card           ~320
+stats row                  ~120
+authors card               ~320
+rhythm card                ~160
+footer                     ~60
+                           ----
+                           ~1272  → fits in 1350 with ~80px breathing
+```
+
+If the budget is tight, either drop a section or switch to content-driven height (just `w-[Npx]`). The `wrapped` example does this — width fixed at 1080, height emerges.
+
+### Bar charts / histograms without Recharts
+
+If you're drawing bars by hand (not via Recharts), use **pixel math** for the bar heights, not percentages:
+
+```tsx
+// ✗ collapses to 0 if parent is content-driven
+<div style={{ height: `${(v / max) * 100}%` }} />
+
+// ✓ explicit pixel ceiling, works everywhere
+<div style={{ height: `${(v / max) * 80}px` }} />
+```
+
+Or constrain the parent to a fixed pixel height (`h-[120px]`) and put the bar inside with `h-full` / absolute positioning.
 
 ---
 

@@ -1,6 +1,6 @@
 # pi-poster
 
-🎨 [Poster](https://github.com/Michaelliv/poster) integration for [pi](https://github.com/badlogic/pi).
+🎨 [Poster](https://github.com/Michaelliv/poster) integration for [pi](https://github.com/badlogic/pi-mono).
 
 Give agents the ability to render standalone React posters to PNG / SVG / PDF / JPG / WebP during a session.
 
@@ -19,17 +19,32 @@ pi install npm:pi-poster
 
 **poster-make** — registers one tool:
 
-- `poster_render` — Render a React component (inline `.tsx` source as a string) to an image file. Single-file authoring — Tailwind classes, Recharts, lucide-react icons, Inter / Source Serif 4 / JetBrains Mono fonts all work out of the box.
+- `poster_render` — Render a React component to an image file. Single-file authoring — Tailwind classes, Recharts, lucide-react icons, Inter / Source Serif 4 / JetBrains Mono fonts all work out of the box. Source the TSX two ways:
+  - **`tsx`** — inline source string. Use for the first render.
+  - **`tsxPath`** — path to a `.tsx` file on disk. Use for iterative edits: the agent edits the previously archived source rather than resending the whole component.
 
-Example the agent might make on your behalf:
+First render — inline source:
 
 ```
 poster_render({
   tsx: `export default () => <div className="w-[1200px] p-10 bg-black text-white"><h1 className="text-7xl font-black">Hello.</h1></div>`,
   out: "./hello.png"
 })
-→ Rendered /Users/you/project/hello.png · 24.3 KB · png
+→ Rendered /Users/you/project/hello.png · 24.3 KB · 1200×180 · png
 ```
+
+Iterative edit — the agent edits `.poster/output/hello-<ts>.tsx` and re-renders by path:
+
+```
+poster_render({
+  tsxPath: ".poster/output/hello-1776359608903.tsx",
+  out: "./hello.png"
+})
+```
+
+### Archive
+
+Every render also writes a paired `<name>-<ts>.{png,tsx}` into `.poster/output/`. The image gives you a full history of what the agent produced; the `.tsx` is what `tsxPath` re-renders against. Add `.poster/` to `.gitignore` if you don't want the archive in version control.
 
 ### Skill
 
