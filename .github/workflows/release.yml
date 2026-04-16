@@ -18,7 +18,7 @@ jobs:
           node-version: 20
       - run: npm install
       - name: Lint
-        run: npx @biomejs/biome check extensions/
+        run: npx @biomejs/biome check .pi/extensions/
 
   release:
     needs: lint

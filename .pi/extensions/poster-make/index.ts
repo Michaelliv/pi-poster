@@ -110,8 +110,10 @@ function validateTsx(tsx: string): string | null {
   // `height: ${expr}%` inside a template string or style object.
   if (/height:\s*[`"]?\$\{[^}]+\}%/.test(tsx)) {
     return [
+      // biome-ignore lint/suspicious/noTemplateCurlyInString: literal ${} text shown to the agent
       "Percentage-height computed from an expression (`height: ${...}%`) is a classic layout trap. If the parent element's height isn't fixed, the percentage resolves to 0 and the element collapses.",
       "",
+      // biome-ignore lint/suspicious/noTemplateCurlyInString: literal ${} text shown to the agent
       "Fix: compute a pixel height instead. E.g. for a bar chart column, use `height: ${(v / max) * 80}px` with an explicit pixel ceiling. Or wrap the bars in a parent with an explicit `h-[Npx]` and use `h-full` / absolute positioning on the bar.",
     ].join("\n");
   }
