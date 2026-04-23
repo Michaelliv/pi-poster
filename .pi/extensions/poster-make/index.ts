@@ -370,7 +370,12 @@ export default function (pi: ExtensionAPI) {
       const label = `${details.format} · ${kb} KB → ${details.path}`;
       container.addChild(new Text(theme.fg("muted", label), 0, 0));
 
-      if (getCapabilities().images && context.showImages && details.base64 && details.mime) {
+      if (
+        getCapabilities().images &&
+        context.showImages &&
+        details.base64 &&
+        details.mime
+      ) {
         container.addChild(
           new Image(
             details.base64,
