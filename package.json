@@ -1,6 +1,6 @@
 {
   "name": "pi-poster",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "🎨 Poster integration for pi — render React posters to PNG/SVG/PDF/JPG/WebP from an agent session.",
   "keywords": [
     "pi-package",
